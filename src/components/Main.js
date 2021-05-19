@@ -14,11 +14,12 @@ const Main = () => {
     console.log("rerender")
 
     return (
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Employee's username" aria-label="Recipient's username" aria-describedby="button-addon2"/>
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search Employees</button>
+        <div className="input-group mb-3">
+            <input type="text" className="form-control" placeholder="Employee's username" aria-label="Recipient's username" aria-describedby="button-addon2"/>
+                <div className="input-group-append">
+                    <button className="btn btn-outline-secondary" type="button" id="button-addon2">Search Employees</button>
                 </div>
+                <div>{employee.picture.large}</div>
       </div>
     )
 }
