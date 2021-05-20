@@ -1,8 +1,14 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import React from "react";
 
 const Main = () => {
-    const [employee, setEmployee] = useState([]);
+    const [employee, setEmployee] = useState({
+        picture:[],
+        name:"",
+        email:"",
+        DOB: ""
+});
 
     useEffect(() => {
         axios.get("https://randomuser.me/api/?results=200&nat=us").then((res) => {
@@ -19,8 +25,10 @@ const Main = () => {
                 <div className="input-group-append">
                     <button className="btn btn-outline-secondary" type="button" id="button-addon2">Search Employees</button>
                 </div>
-                <div>{employee.picture.large}</div>
-      </div>
+                <div></div>
+                <div>
+                    name:{employee.name}</div>
+        </div>
     )
 }
 
