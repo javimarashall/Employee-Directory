@@ -55,9 +55,9 @@ const Main = () => {
 
 
     const handleSort = (employees) => {
-        employees.sort(function (a, b) {
-            return a.localeCompare(b); //using String.prototype.localCompare()
-          });
+        // employees.sort(function (a, b) {
+        //     return a.localeCompare(b); //using String.prototype.localCompare()
+        //   });
     }
 
     return (
@@ -71,10 +71,10 @@ const Main = () => {
             <table className="table">
                 <tbody>
                     <tr>
-                        <th>picture</th>
-                        <th onClick={handleSort}>name</th>
-                        <th>email</th>
+                        <th>Picture</th>
+                        <th onClick={handleSort}>Name</th>
                         <th>Phone</th>
+                        <th>E-Mail</th>
                         <th>DOB</th>
                     </tr>
                     {renderTableRows()}
