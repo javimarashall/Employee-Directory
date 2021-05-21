@@ -18,11 +18,11 @@ const Main = () => {
     const renderTableRows = () => {
         let result = null;
 
-        
+
         if (filtered) {
             result = filtered.map((employee) => {
                 return (
-                    <TableRow data={employee}/>
+                    <TableRow data={employee} />
                 )
             });
         }
@@ -61,13 +61,21 @@ const Main = () => {
     }
 
     return (
-        <>
-            <div className="input-group mb-3">
-                <input onChange={(event) => handleChange(event)} type="text" className="form-control" placeholder="Employee's username" aria-label="Recipient's username" aria-describedby="button-addon2" />
-                <div className="input-group-append">
-                    <button className="btn btn-outline-secondary" type="button" id="button-addon2">Search Employees</button>
+    <>    
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div className="container-fluid">
+                <div className="collapse navbar-collapse" id="navbarColor02">
+
                 </div>
             </div>
+
+            <div className="input-group mb-3">
+                <input onChange={(event) => handleChange(event)} type="text" className="form-control" placeholder="Search Employee" aria-label="Recipient's username" aria-describedby="button-addon2" />
+                <div className="input-group-append">
+                    <button className="btn btn-outline-secondary" type="button" id="button-addon2">Search Employee</button>
+                </div>
+            </div>
+        </nav>
             <table className="table">
                 <tbody>
                     <tr>
@@ -80,7 +88,7 @@ const Main = () => {
                     {renderTableRows()}
                 </tbody>
             </table>
-        </>
+    </>
     )
 }
 
