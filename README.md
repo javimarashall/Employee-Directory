@@ -30,7 +30,7 @@ const handleChange = (event) => {
 https://github.com/javimarashall/Employee-Directory
 
 ## Deploy Link
-
+https://javimarashall.github.io/Employee-Directory/
 ## Personal Links
 [Github](https://github.com/javimarashall)<br>
 [Linkedin](https://www.linkedin.com/in/javier-mondragon-7b471719b/)

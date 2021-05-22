@@ -47,9 +47,9 @@ const Main = () => {
             // if(a.name.toLowerCase() > b.name.toLowerCase()) { return 1; }
             // console.log("**",a)
             // return 0;
-    //         setEmployees(sortedEmployees);
-    //  });
-    //}  
+            setEmployees(sortedEmployees);
+     });
+    }  
      
 
     return (
