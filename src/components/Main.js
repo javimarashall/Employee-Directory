@@ -8,7 +8,7 @@ const Main = () => {
     const [filtered, setFiltered] = useState(null);
 
     useEffect(() => {
-        axios.get("https://randomuser.me/api/?results=5&nat=us").then((res) => {
+        axios.get("https://randomuser.me/api/?results=10&nat=us").then((res) => {
             console.log("res:", res.data.results);
             setEmployees(res.data.results);
             setFiltered(res.data.results);
