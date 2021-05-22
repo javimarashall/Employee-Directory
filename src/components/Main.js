@@ -43,10 +43,11 @@ const Main = () => {
      const handleSort = () => {
        const sortedEmployees = employees.sort(function(a, b){
             
-            if(a.name.toLowercase() < b.name.toLowercase()) { return -1; }
-            if(a.name.toLowercase() > b.name.toLowercase()) { return 1; }
+            if(a.name.toLowerCase() < b.name.toLowerCase()) { return -1; }
+            if(a.name.toLowerCase() > b.name.toLowerCase()) { return 1; }
+            console.log("**",a)
             return 0;
-            setEmployees(sortedEmployees)
+            setEmployees(sortedEmployees);
      });
     }  
      
