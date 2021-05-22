@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useReducer } from 'react'
 import axios from 'axios'
 import React from "react";
 import TableRow from "./TableRow";
@@ -8,10 +8,11 @@ const Main = () => {
     const [filtered, setFiltered] = useState(null);
 
     useEffect(() => {
-        axios.get("https://randomuser.me/api/?results=20&nat=us").then((res) => {
+        axios.get("https://randomuser.me/api/?results=5&nat=us").then((res) => {
             console.log("res:", res.data.results);
             setEmployees(res.data.results);
             setFiltered(res.data.results);
+           
         });
     }, [])
 
@@ -39,43 +40,33 @@ const Main = () => {
         setFiltered(filteredList);
     }
 
-    // function handleSort(a,b) {
-    //     const { employee } = props;
-    //     let sortedProducts = [...employee];
-    //     sortedProducts.sort((a, b) => {
-    //       if (a.name < b.name) {
-    //         return -1;
-    //       }
-    //       if (a.name > b.name) {
-    //         return 1;
-    //       }
-    //       return 0;
-    //     });
-    //   }
-
-
-    const handleSort = (employees) => {
-        // employees.sort(function (a, b) {
-        //     return a.localeCompare(b); //using String.prototype.localCompare()
-        //   });
-    }
+     const handleSort = () => {
+       const sortedEmployees = employees.sort(function(a, b){
+            
+            if(a.name.toLowercase() < b.name.toLowercase()) { return -1; }
+            if(a.name.toLowercase() > b.name.toLowercase()) { return 1; }
+            return 0;
+            setEmployees(sortedEmployees)
+     });
+    }  
+     
 
     return (
-    <>    
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div className="container-fluid">
-                <div className="collapse navbar-collapse" id="navbarColor02">
+        <>
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
+                <div className="container-fluid">
+                    <div className="collapse navbar-collapse" id="navbarColor02">
 
+                   
                 </div>
-            </div>
-
-            <div className="input-group mb-3">
-                <input onChange={(event) => handleChange(event)} type="text" className="form-control" placeholder="Search Employee" aria-label="Recipient's username" aria-describedby="button-addon2" />
-                <div className="input-group-append">
-                    <button className="btn btn-outline-secondary" type="button" id="button-addon2">Search Employee</button>
+                <div className="input-group ">
+                    <input onChange={(event) => handleChange(event)} type="text" className="form-control" placeholder="Search Employee" aria-label="Recipient's username" aria-describedby="button-addon2" />
+                    <div className="input-group-append">
+                        <button className="btn btn-outline-secondary" type="button" id="button-addon2">Search Employee</button>
+                    </div>
                 </div>
-            </div>
-        </nav>
+                </div>
+            </nav>
             <table className="table">
                 <tbody>
                     <tr>
@@ -88,10 +79,10 @@ const Main = () => {
                     {renderTableRows()}
                 </tbody>
             </table>
-    </>
+        </>
     )
 }
 
 export default Main;
+//<th onClick={handleSort}>Name</th>
 
-//We need to be able to map through employee array for the change in status as the user enters the name
